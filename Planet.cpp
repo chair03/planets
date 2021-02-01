@@ -13,13 +13,14 @@ planet::planet(double Mass,std::vector<double> x,std::vector<double> p){
     this->Mass = Mass;
     this->x = x;
     this->p = p;
+    this->n = x.size();
 }
 
-std::vector<double> planet::get_x() const{
+std::vector<double> planet::get_x() {
     return this->x;
 }
 
-std::vector<double> planet::get_p() const{
+std::vector<double> planet::get_p(){
     return this->p;
 }
 
@@ -34,8 +35,7 @@ int planet::getDim(){
 void planet::update_x(double h){
     int dim = this->n;
     for(int i = 0;i<dim;i++){
-        double& position = (this->x)[i];
-        position += h*(this->p)[i];
+        (this->x)[i] += (this->p)[i];
     }
 }
 
